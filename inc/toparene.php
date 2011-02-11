@@ -1,4 +1,4 @@
-<div class="mh">Top Guilde PVP</div><div class="mf"><!-- Menu -->	
+<div class="mh">Teams Arène</div><div class="mf"><!-- Menu -->	
 <?php
 {
 mysql_select_db($array_db['characters']) or die();
