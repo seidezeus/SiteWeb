@@ -4,6 +4,7 @@
 <li><a href="<?php echo ''.$array_base['lien_forum'].''; ?>" title="">Notre Forum</a></li>
 <li><a href="index.php?site=rejoindre" title="">Nous rejoindre</a></li>
 <li><a href="index.php?site=staff" title="">Le Staff <?php echo ''.$array_base['nom'].''; ?></a></li>
+<li><a href="http://88.191.137.19/wowhead/" title="">WoWhead</a></li>
 </ul> 
 </div><div class="mb"></div> <!-- Fin Menu -->
 <div class="mh">Serveur</div><div class="mf"><!-- Menu -->
