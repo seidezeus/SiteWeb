@@ -1,0 +1,101 @@
+<?php
+if($_SESSION['login'] && $_SESSION['login'] == TRUE)
+{	
+	echo '
+	<div id="service">
+		<ul class="service-bar">
+			<li class="service-cell service-home">
+				<a href="index.php?page=Accueil" tabindex="50" accesskey="1">&nbsp;</a>
+			</li>
+			<li class="service-cell service-welcome">
+				Bienvenue, '.$infos_compte['username'].' | <a href="index.php?page=Deconnexion">déconnexion</a>
+			</li>';
+			if($infos_compte['gmlevel'] >= '3')
+			{
+				echo '
+				<li class="service-cell service-account">
+					<a href="index.php?page=Administration" class="service-link" tabindex="50" accesskey="3">Administration</a>
+				</li>';
+			}
+			echo '
+			<li class="service-cell service-account">
+				<a href="index.php?page=Gestion" class="service-link" tabindex="50" accesskey="3">Compte</a>
+			</li>
+			<li class="service-cell service-account">
+				<a href="index.php?page=FAQ" class="service-link" tabindex="50" accesskey="3">Assistance</a>
+			</li>
+			<li class="service-cell service-explore">
+				<a href="#explore" tabindex="50" accesskey="5" class="dropdown" id="explore-link" onclick="return false" style="cursor: progress" rel="javascript">Votez</a>
+				<div class="explore-menu" id="explore-menu" style="display:none;">
+					<div class="explore-primary">';
+						create_vote_lists($_SESSION['id'],$array_db['db_site']);
+						
+						$points = show_points($_SESSION['id'],$array_db['db_site']);
+						$passed_time = show_passed_time($array_db['db_site']);
+						
+						if($passed_time == '0')
+							echo '<center><font color="red"><strong>Vous n\'avez pas encore voter !</strong></font></center>';
+						else
+							echo '<center><font color="red"><strong>Votre dernier vote a été effectué il y a '.$passed_time.'.</strong></font></center>';
+
+						if(isset($_POST["site"]))
+							vote(intval($_POST["site"]),$_SESSION['id'],$array_db['db_site']);
+
+						if(!(return_voted_sites($array_db['db_site']) == count_tab_sites()))
+						{
+							if(check_date_points($_SESSION['id'],$array_db['db_site']))
+							{
+								echo '
+								<br />
+								<center>
+									<form action="index.php?page=Accueil" method="post">
+										<select name="site" onchange="this.form.submit();">
+											<option value="0"></option>';
+												show_sites_menu($array_db['db_site']);
+										echo '
+										</select>
+									</form>
+								</center>';
+							}
+							else 
+								echo '<center><font color="red"><strong>Vous avez atteint la limite de votes pour aujourd\'hui !</strong></font></center>';
+						}
+						else
+							echo '<center><font color="red"><strong>Vous pourrez recommencer à voter dans '.show_time_to_vote($array_db['db_site']).'';
+					echo '
+					</div>
+				</div>
+			</li>
+		</ul>';
+		include_once ('includes/html/warnings-wrapper.html');
+	echo '</div>';
+}else
+{
+	echo '
+	<div id="service">
+		<ul class="service-bar">
+			<li class="service-cell service-home">
+				<a href="index.php?page=Accueil" tabindex="50" accesskey="1">&nbsp;</a>
+			</li>
+			<li class="service-cell service-welcome">
+				<a href="index.php?page=Connexion">Connectez-vous</a> ou <a href="index.php?page=Inscription">créez un compte</a>
+			</li>
+			<li class="service-cell service-account">
+				<a href="index.php?page=Gestion" class="service-link" tabindex="50" accesskey="3">Compte</a>
+			</li>
+			<li class="service-cell service-account">
+				<a href="index.php?page=FAQ" class="service-link" tabindex="50" accesskey="3">Assistance</a>
+			</li>
+			<li class="service-cell service-explore">
+				<a href="#explore" tabindex="50" accesskey="5" class="dropdown" id="explore-link" onclick="return false" style="cursor: progress" rel="javascript">Votez</a>
+				<div class="explore-menu" id="explore-menu" style="display:none;">
+					<div class="explore-primary">
+						<center><font color="red"><strong>Vous devez être connecté pour voter !</strong></font></center>
+					</div>
+				</div>
+			</li>
+		</ul>';
+		include_once ('includes/html/warnings-wrapper.html');
+	echo '</div>';
+}
+?>
