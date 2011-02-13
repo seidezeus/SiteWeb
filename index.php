@@ -1,76 +1,108 @@
 <?php
+//////////////////////////////////////////////////
+//			   *MaNGOS-Cata-Web*				//
+//												//
+//	Site développé par Allan pour Easy-MaNGOS	//
+//////////////////////////////////////////////////
 session_start();
-include ('libs/config.php');
-include ('libs/fonctions.php');
 error_reporting(0);
+
 htmlspecialchars($input);
 htmlentities($input);
 addslashes($input);
+
+/* Chargement du fichier config */
+require_once ('includes/configuration.php');
+
+/* Prise en compte des variables */
+$session_id = mysql_real_escape_string($_SESSION['id']);
+$session_username = mysql_real_escape_string(htmlentities($_SESSION['username']));
+$ip = getenv("REMOTE_ADDR");
+
+$race = array(1=> "Humain",2=> "Orc",3=> "Nain",4=> "Elfe de la nuit",5=> "Mort-vivant",6=> "Tauren",7=> "Gnome",8=> "Troll",10=> "Elfe de sang",11=> "Draenei");
+$class = array(1=> "Guerrier",2=> "Paladin",3=> "Chasseur",4=> "Voleur",5=>" Prêtre",6=> "Chevalier de la mort",7=> "Chaman",8=> "Mage",9=> "Démoniste",11=> "Druide");
+$faction = array(1=> "Alliance",2=> "Horde",3=> "Alliance",4=> "Alliance",5=> "Horde",6=> "Horde",7=> "Alliance",8=> "Horde",10=> "Horde",11=> "Alliance");
+
+/* Chargement des fonctions */
+require_once ('includes/fonctions/function.vote.php');
+require_once ('includes/fonctions/function.site.php');
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr-fr">
 <head>
-<title><?php  echo $array_base['nom']; ?></title>
-<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-<link rel="icon" href="images/favicon.ico" type="image/x-icon">
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
-<meta http-equiv="content-language" content="fr" />
-<link href="css/style.css"	title="Défaut" rel="stylesheet" type="text/css" media="screen" />
-	<script type="text/javascript" src="js/script.js"></script>
-	<script type="text/javascript" src="js/mootools.js"></script>
-	<script type="text/javascript" src="js/slideshow.js"></script>
-	<script type="text/javascript">		
-	  window.addEvent('domready', function(){
-	    var data = {
-	      '1.png': { caption: 'Votre Titre 1' }, 
-	      '2.png': { caption: 'Votre Titre 2' }, 
-	      '3.png': { caption: 'Votre Titre 3' }, 
-	      '4.png': { caption: 'Votre Titre 4' }
-	    };
-	    var myShow = new Slideshow('show', data, {controller: true, height: 260, hu: 'images/banniere/', thumbnails: true, width: 600});
-	  });
+<title><?php echo $array_site['nom']; ?></title>
+
+<link rel="shortcut icon" href="style/images/favicons/wow-icon.png" type="image/x-icon"/>
+
+<link rel="stylesheet" type="text/css" media="all" href="style/css/common.css" />
+<!--[if IE]><link rel="stylesheet" type="text/css" media="all" href="http://eu.battle.net/wow/static/local-common/css/common-ie.css" /><![endif]-->
+<!--[if IE 6]><link rel="stylesheet" type="text/css" media="all" href="http://eu.battle.net/wow/static/local-common/css/common-ie6.css" /><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" type="text/css" media="all" href="http://eu.battle.net/wow/static/local-common/css/common-ie7.css" /><![endif]-->
+
+
+<link rel="stylesheet" type="text/css" media="all" href="style/css/wow.css" />
+<!--[if IE]><link rel="stylesheet" type="text/css" media="all" href="http://eu.battle.net/wow/static/css/wow-ie.css" /><![endif]-->
+<!--[if IE 6]><link rel="stylesheet" type="text/css" media="all" href="http://eu.battle.net/wow/static/css/wow-ie6.css" /><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" type="text/css" media="all" href="http://eu.battle.net/wow/static/css/wow-ie7.css" /><![endif]-->
+
+<link rel="stylesheet" type="text/css" media="all" href="style/css/cms/homepage.css" />
+<link rel="stylesheet" type="text/css" media="all" href="style/css/cms/blog.css" />
+<link rel="stylesheet" type="text/css" media="all" href="style/css/cms/comments.css" />
+<link rel="stylesheet" type="text/css" media="all" href="style/css/cms/cms-common.css" />
+
+<link rel="stylesheet" type="text/css" media="all" href="style/css/cms.css" />
+<!--[if IE 6]><link rel="stylesheet" type="text/css" media="all" href="http://eu.battle.net/wow/static/css/cms-ie6.css" /><![endif]-->
+
+<link rel="stylesheet" type="text/css" media="all" href="style/css/locale/fr-fr.css" />
+
+<link rel="stylesheet" type="text/css" media="all" href="style/css/profile.css" />
+<!--[if IE]><link rel="stylesheet" type="text/css" media="all" href="http://eu.battle.net/wow/static/css/profile-ie.css" /><![endif]-->
+<!--[if IE 6]><link rel="stylesheet" type="text/css" media="all" href="http://eu.battle.net/wow/static/css/profile-ie6.css" /><![endif]-->
+
+<link rel="stylesheet" type="text/css" media="all" href="style/css/character/summary.css" />
+<!--[if IE]><link rel="stylesheet" type="text/css" media="all" href="http://eu.battle.net/wow/static/css/character/summary-ie.css" /><![endif]-->
+<!--[if IE 6]><link rel="stylesheet" type="text/css" media="all" href="http://eu.battle.net/wow/static/css/character/summary-ie6.css" /><![endif]-->
+
+<link rel="stylesheet" type="text/css" media="all" href="style/css/cms/search.css" />
+<link rel="stylesheet" type="text/css" media="all" href="style/css/search.css" />
+
+<script type="text/javascript" src="style/js/third-party/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="style/js/core.js"></script>
+<script type="text/javascript" src="style/js/tooltip.js"></script>
+
+<script type="text/javascript" src="style/js/menu.js"></script>
+<script type="text/javascript" src="style/js/wow.js"></script>
+<script type="text/javascript" src="style/js/noel.js"></script>
+
+<script type="text/javascript" src="http://static.wowhead.com/widgets/power.js"></script>
+<script language="javascript">
+var state = 'none';
+function showhide(layer_ref) 
+{
+	if (state == 'block') {
+	state = 'none';
+	}
+	else {
+		state = 'block';
+	}
+	if (document.all) {
+		eval( "document.all." + layer_ref + ".style.display = state");
+	}
+	if (document.layers) {
+		document.layers[layer_ref].display = state;
+	}
+	if (document.getElementById &&!document.all) {
+		hza = document.getElementById(layer_ref);
+		hza.style.display = state;
+	}
+}
 </script>
 </head>
-<body>
-
-
-<div id="conteneur"><!-- Global -->  
-<div id="header"> 
-<body>
-</div><!-- Header --> 
-<div id="contenu"><!-- Contenu -->
-
-<div id="left"><!-- colonne gauche --> 
-<?php include ('inc/menu.php');?>
-<?php include ('inc/toparene.php');?>
-</div><!-- Fin colonne gauche -->  
-
-<div id="right"><!-- colonne droite -->	 
-<?php include ('inc/infocompte.php');?>
-<?php include ('inc/statuserv.php');?>
-<?php include ('inc/topvote.php');?>
-</div><!-- Fin colonne droite -->
-
-<div id="centre"><!-- Centre -->
- <div id="show" class="slideshow">
-    <img src="images/1.png" alt="World Of Warcraft" />
-  </div>
-<div class="nh"></div><div class="nf"><!-- news --> 
-<?php include ('inc/racc.php');?>
-</div><div class="nb"></div><!-- news --> 	
-</div><!-- Fin Centre -->
-<div class="clear"></div><!-- NE PAS SUPPRIMER -->
-</div><!-- Fin Contenu -->
-
-<div id="pied"><!-- Pied -->
-<!-- mention de copyright Ne pas retirer sans autorisation écrite -->  
-<div class="copyright">©<a href=""> Votresite.com</a> 2010 | Design <a href="http://www.kitgraphiquegratuit.org" onclick="window.open(this.href); return false;" title="kits graphiques gratuits"> Kit graphique</a></div>
-<!-- mention de copyright Ne pas retirer sans autorisation écrite -->	
-</div><!-- Fin Pied -->
-</div><!-- Fin Global -->  
-<div class="copyrightblizzard"><!-- Copyright Blizzard -->
-World of Warcraft® et Blizzard Entertainment® sont des marques commerciales ou des marques déposées de Blizzard Entertainment aux Etats-Unis et/ou dans d'autres pays.
-These terms and all related materials, logos, and images are copyright © Blizzard Entertainment. This site is in no way associated with or endorsed by Blizzard Entertainment®.
-</div><!-- Fin Copyright Blizzard -->
-</body>
+<?php
+if (isset($_GET['page'])) {
+    file_exists('pager/'.$_GET['page'].'.php') ? $page=$_GET["page"] : $page='404';
+} else {
+    $page='Accueil';
+}
+include_once 'pager/'.$page.'.php';
+?>
 </html>
