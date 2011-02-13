@@ -1,0 +1,32 @@
+<div id="header">
+	<?php include_once ('includes/html/search-bar.html'); ?>
+	<h1 id="logo"><a href="index.php?page=Accueil">World of Warcraft</a></h1>
+	<div class="header-plate-wrapper">
+		<div class="header-plate">
+			<ul id="menu">
+				<li class="menu-home">
+				<a href="index.php?page=Accueil"><span>Accueil</span></a>
+				</li>
+				<li class="menu-game">
+				<a href="index.php?page=Reglement"><span>R&egrave;glement</span></a>
+				</li>
+				<li class="menu-community">
+				<a href="index.php?page=RejoinNous"><span>Rejoinds-Nous</span></a>
+				</li>
+				<li class="menu-media">
+				<a href="index.php?page=Rechercher"><span>Armurerie</span></a>
+				</li>
+				<li class="menu-forums">
+				<a href="<?php echo ''.$array_site['forum'].''; ?>"><span>Forums</span></a>
+				</li>
+				<li class="menu-services">
+				<a href="index.php?page=Boutique" class="active"><span>Boutique</span></a>
+			              </li>
+
+
+
+			</ul>
+			<?php include_once ('includes/html/user-plate.html'); ?>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,31 @@
+@charset "utf-8";
+
+/* service bar */
+#service-bar #explore-link .dropdown-link { padding: 0 29px 7px 0; }
+
+.post-detail { width:564px; }
+.post-info { width:135px; } /* post-info + post-detail = 699 */
+.karma .rateup { width:60px }
+
+/* average item level */
+.summary-averageilvl .rest { text-transform:none; }
+
+.game-guide-what-is-wow .part1-div  p, .game-guide-what-is-wow .part2-div  p, .game-guide-what-is-wow .part3-div  p, .game-guide-what-is-wow .part4-div  p {line-height:18px;}
+.game-guide-what-is-wow .part3-desc02 .guide-detail-desc p, .game-guide-what-is-wow .part4-desc02  p, .game-guide-what-is-wow .part4-desc03  p {line-height:15px;}
+.game-guide-what-is-wow .part1-div  .part1-detail .role-playing {margin:26px 0 0 50px;}
+.game-guide-what-is-wow .part1-div  .part1-detail .online {margin:40px 50px 0 0;}
+
+
+.game-guide-getting-started .step1-div  p, .game-guide-getting-started  .step4-div  p {line-height:18px;}
+.game-guide-getting-started .sever-type-list {line-height:15px;}
+.game-guide-getting-started .step3-div  p {line-height:17px;}
+.game-guide-getting-started .step3-div  .content-col-right {line-height:13px;}
+.game-guide-getting-started .part1-div  .part1-detail .role-playing {margin:26px 0 0 50px;}
+.game-guide-getting-started .part1-div  .part1-detail .online {margin:0 50px 0 0;}
+.game-guide-getting-started .step1-div .raf-desc {margin-top:30px;}
+
+.game-guide-playing-together .chat-other .dialog, .game-guide-playing-together #friends .friends .box {line-height:15px;}
+.game-guide-playing-together #party .box, .game-guide-playing-together #friends .intro {line-height:19px;}
+
+/* character card */
+#header .user-plate .user-meta.meta-login { padding-right:20px; top:61px; }

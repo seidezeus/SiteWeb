@@ -1,0 +1,778 @@
+/*  phpBB 3.0 Style Sheet
+    --------------------------------------------------------------
+	Style name:       Cataclismo
+	Based on style:		subSilver2
+	Original author:	Juan Antonio Martín Jiménez
+	
+	subSilver2 is an alternative style for phpBB3 for those wishing to stay with
+	the familiar subSilver style of phpBB version 2.x
+    --------------------------------------------------------------
+*/
+
+/* Layout
+ ------------ */
+* {
+	/* Reset browsers default margin, padding and font sizes */
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 100%;
+}
+
+body {
+	/* Text-Sizing with ems: http://www.clagnut.com/blog/348/ */
+	font-family: Arial, Helvetica, Verdana, "Lucida Grande", sans-serif;
+	color: #FFF;	
+	font-size: 62.5%; /* This sets the default font size to be equivalent to 10px */
+	margin: 0;
+	border: 0;
+	background: #000 url('./images/bg-homepage.jpg') no-repeat 50% 0 fixed;
+	text-shadow:#000 -1px -1px 1px;
+}
+
+#barramenu {background: url('./images/navigation_bg.png') no-repeat 50% 0; margin: 0 auto; width: 1115px; height:200px;}
+#contenttop {margin: 0 auto; width:1000px; height: 42px; background: url(./images/tablesup.gif) no-repeat 50% 0;}
+#contentbg {margin: 0 auto; width:1000px; background: url(./images/contentbg.png);}
+#contentbottom {margin: 0 auto; width:1000px; height:14px; background: url(./images/contentend.gif) no-repeat 50% 0;}
+
+#wrapheader {
+	min-height: 120px;
+	height: auto !important;
+	height: 120px;
+/*	background-image: url('./images/background.gif');
+	background-repeat: repeat-x;*/
+/*	padding: 0 25px 15px 25px;*/
+	padding: 0;
+}
+
+#wrapcentre {
+	margin: 0px 0px 0px 0px;
+}
+
+#wrapfooter {
+	text-align: center;
+	clear: both;
+}
+
+#wrapnav {
+	width: 100%;
+	margin: 0;
+	background-color: #ECECEC;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #A9B8C2;
+}
+
+#logodesc {
+	margin-bottom: 5px;
+	padding: 5px 25px;
+	background: none;
+}
+
+#menubar {
+	margin: 0 25px;
+}
+
+#datebar {
+	margin: 10px 25px 0 25px;
+}
+
+#findbar {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.forumrules {
+	background-color: #000000;
+	border-width: 2px;
+	border-style: solid;
+	border-color: #101010;
+	padding: 4px;
+	font-weight: normal;
+	font-size: 1.1em;
+	font-family: Arial, Helvetica, Verdana, sans-serif, "Lucida Grande";
+	background-image: url('./images/catbg03.png');
+}
+
+.forumrules h3 {
+	color: red;
+}
+
+.forumrules h3, .forumrules a b {
+	font-weight: normal;
+}
+
+#pageheader { }
+#pagecontent { }
+#pagefooter { }
+
+#poll { }
+#postrow { }
+#postdata { }
+
+#pagecontent .gensmall {
+	color:#707070;
+}
+
+/*  Text
+ --------------------- */
+h1 {
+	color: #FFFFFF;
+	font-family: "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+	font-weight: bold;
+	font-size: 1.8em;
+	text-decoration: none;
+}
+
+h2 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 1.5em;
+	text-decoration: none;
+	line-height: 120%;
+}
+
+h3 {
+	font-size: 1.3em;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 120%;
+}
+
+h4 {
+	margin: 0.3em 0px 0px 0px;
+	font-size: 1.3em;
+	font-weight: bold;
+	color: #FFCC33;
+}
+
+p {
+	font-size: 1.1em;
+}
+
+p.moderators {
+	margin: 0;
+	float: left;
+	color: #707070;
+	font-weight: bold;
+}
+
+.rtl p.moderators {
+	float: right;
+}
+
+p.linkmcp {
+	margin: 0;
+	float: right;
+	white-space: nowrap;
+}
+
+.rtl p.linkmcp {
+	float: left;
+}
+
+p.breadcrumbs {
+	margin: 0;
+	float: left;
+	color: black;
+	font-weight: bold;
+	white-space: normal;
+	font-size: 1em;
+}
+
+.rtl p.breadcrumbs {
+	float: right;
+}
+
+p.datetime {
+	margin: 0;
+	float: right;
+	white-space: nowrap;
+	font-size: 1em;
+}
+
+.rtl p.datetime {
+	float: left;
+}
+
+p.searchbar {
+	padding: 2px 0;
+	white-space: nowrap;
+} 
+
+p.searchbarreg {
+	margin: 0;
+	float: right;
+	white-space: nowrap;
+}
+
+.rtl p.searchbarreg {
+	float: left;
+}
+
+p.forumdesc {
+	padding-bottom: 4px;
+}
+
+p.topicauthor {
+	margin: 1px 0;
+}
+
+p.topicdetails {
+	margin: 1px 0;
+}
+
+.postreported, .postreported a:visited, .postreported a:hover, .postreported a:link, .postreported a:active {
+	margin: 1px 0;
+	color: red;
+	font-weight:bold;
+}
+
+.postapprove, .postapprove a:visited, .postapprove a:hover, .postapprove a:link, .postapprove a:active {
+	color: green;
+	font-weight:bold;
+}
+
+.postapprove img, .postreported img {
+	vertical-align: bottom;
+}
+
+.postauthor {
+	color: #000000;
+	font-weight : bold;
+	font-size : 120%;
+}
+
+.postdetails {
+	color: #AAAAAA;
+}
+
+.postbody {
+	font-size: 1.3em;
+	line-height: 1.4em;
+	font-family: Arial, Helvetica, Verdana, "Trebuchet MS", "Lucida Grande", sans-serif;
+}
+
+.postbody li, ol, ul {
+	margin: 0 0 0 1.5em;
+}
+
+.rtl .postbody li, .rtl ol, .rtl ul {
+	margin: 0 1.5em 0 0;
+}
+
+.posthilit {
+	background-color: #007700;
+	color: white;
+	padding: 0 2px 0 2px;
+	font-weight: bold;
+}
+
+.nav {
+	margin: 0;
+	color: #707070;
+	font-weight: bold;
+}
+
+.pagination {
+	padding: 4px;
+	color: #707070;
+	font-size: 1em;
+	font-weight: bold;
+}
+
+.cattitle {
+
+}
+
+.gen {
+	margin: 1px 1px;
+	font-size: 1.2em;
+}
+
+.genmed {
+	margin: 1px 1px;
+	font-size: 1.1em;
+}
+
+.gensmall {
+	margin: 1px 1px;
+	font-size: 1em;
+}
+
+.copyright {
+	color: #999;
+	font-weight: normal;
+	font-family: Verdana, Arial, Helvetica, sans-serif, "Lucida Grande";
+	letter-spacing: -1px;
+}
+
+a.copyright:link, a.copyright:visited, a.copyright:active {
+	color: #999999;
+}
+
+a.copyright:hover {
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+.titles {
+	font-family:  "Trebuchet MS" , Arial ,  Helvetica , "Lucida Grande", sans-serif , Verdana;
+	font-weight: bold;
+	font-size: 1.4em;
+	text-decoration: none;
+	font-variant: small-caps;
+	line-height : 150%;
+}
+
+.error {
+	color: red;
+}
+
+div.searchbar {
+	margin: 0;
+	float: right;
+	color: #FFFFFF;
+	font-weight: bold;
+	white-space: normal;
+	font-size: 1em;
+}
+
+.breadcrumbs {
+	margin: 0;
+	float: left;
+	color: black;
+	font-weight: bold;
+	white-space: normal;
+	font-size: 1em;
+}
+
+/* Tables
+ ------------ */
+th {
+	color: #FFA34F;
+	font-size: 1.1em;
+	font-weight: bold;
+	background-color: #000000;
+	background-image: url('./images/cellpic3.gif');
+	white-space: nowrap;
+	padding-left: 6px;
+	padding-right: 6px;
+	color: #FFCC33;
+	height:25px;
+}
+
+tr th {
+	padding-top: 4px;
+}
+
+td {
+	padding: 0px 0px 0px 0px;
+}
+
+#colorpalette td {
+	padding: 1px;
+}
+
+td.profile {
+	padding: 4px;
+	/*background:url('./images/profilebg.gif') Bottom Right no-repeat;*/
+
+}
+
+td.msgbody {
+  background:url('./images/msgbg.gif') Bottom Right no-repeat;
+}
+.tablebg {
+	background-color: transparent;
+	border: 1px solid #202020;
+}
+
+.catdiv {
+	height: 28px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: black url('./images/cellpic3.gif') repeat-x scroll top left;
+}
+.rtl .catdiv {
+	background: black url('./images/cellpic3.gif') repeat-x scroll top left;
+}
+
+.cat {
+	height: 28px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	
+	background-image: url('./images/cellpic3.gif');
+	text-indent: 4px;
+}
+
+.row1 {
+
+	padding: 4px;
+	background-image: url('./images/catbg01.png');
+}
+
+.row1b {
+	padding: 7px 4px 6px 4px;
+	background-image: url('./images/catbg01.png');
+}
+
+.row2 {
+
+	padding: 4px;
+	background-image: url('./images/catbg02.png');
+}
+
+.row3 {
+
+	padding: 4px;
+	background-image: url('./images/catbg02.png');
+}
+
+.row1s {
+
+	padding: 4px;
+	background-image: url('./images/catbg01.png');
+	/*background: url('./images/logrobg.gif') center no-repeat;*/
+}
+.row2s{
+
+	padding: 4px;
+	background-image: url('./images/catbg02.png');
+	/*background: url('./images/logrobg.gif') center no-repeat;*/
+}
+
+td.row1, td.row2, td.row3, td.row1s, td.row2s, tr.row1 td, tr.row2 td, tr.row1s td, tr.row2s td, td.row1b, tr.row1b td {
+	border: 1px solid #202020;
+}
+
+.spacer {
+	background-color: #000000;
+	background-image: url('./images/catbg01.png');
+	padding:3px 0 0 0;
+}
+
+hr {
+	height: 1px;
+	border-width: 0;
+	background-color: #202020;
+	color: #D1D7DC;
+}
+
+.legend {
+	text-align:center;
+	margin: 0 auto;
+}
+
+/* Links
+ ------------ */
+a:link {
+	color:#FF9900;
+	text-decoration: none;
+}
+
+a:active,
+a:visited {
+	color: #FF9900;
+	text-decoration: none;
+}
+
+a:hover {
+	color:#FFFF00;
+	text-decoration: none;
+}
+
+a.forumlink {
+	color:#FF9900;
+	font-weight: bold;
+	font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+	font-size: 1.2em;
+}
+
+a.topictitle {
+	margin: 1px 0;
+	font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+a.topictitle:visited {
+	color: #FF9900;
+	text-decoration: none;
+}
+
+a.link02:link, a.link02:active, a.link02:visited, a.link02:hover {
+	text-decoration: none;
+}
+
+th a,
+th a:visited {
+	color: #FFCC33 !important;
+	text-decoration: none;
+}
+
+th a:hover {
+	text-decoration: underline;
+}
+
+
+/* Form Elements
+ ------------ */
+form {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.cat form {
+	margin: 6px 0px 4px 0px;
+}
+
+input {
+	color: #FFFFFF;
+	font-family: "Lucida Grande", Verdana, Helvetica, sans-serif;
+	font-size: 1.1em;
+	font-weight: normal;
+	padding: 1px;
+	border: 1px solid #FF9900;
+	background-color: #000000;
+}
+
+textarea {
+	background-color: #000000;
+	color: #FFFFFF;
+	font-family: "Lucida Grande", Verdana, Helvetica, Arial, sans-serif;
+	font-size: 1.3em; 
+	line-height: 1.4em;
+	font-weight: normal;
+	border: 1px solid #FF9900;
+	padding: 2px;
+}
+
+select {
+	color: #FFFFFF;
+	background-color: #000000;
+	font-family: "Lucida Grande", Verdana, Helvetica, sans-serif;
+	font-size: 1.1em;
+	font-weight: normal;
+	border: 1px solid #FF9900;
+	padding: 1px;
+}
+
+option {
+	padding: 0 1em 0 0;
+}
+
+option.disabled-option {
+	color: graytext;
+}
+
+.rtl option {
+	padding: 0 0 0 1em;
+}
+
+input.radio {
+	border: none;
+	background-color: transparent;
+}
+
+.post {
+	background-color: #000000;
+	border-style: solid;
+	border-width: 1px;
+}
+
+.btnbbcode {
+	color: #FFFFFF;
+	font-weight: normal;
+	font-size: 1.1em;
+	font-family: "Lucida Grande", Verdana, Helvetica, sans-serif;
+	background-color: #000000;
+	border: 1px solid #FF9900;
+}
+
+.btnmain {
+	font-weight: bold;
+	background-color: #000000;
+/*	border: 1px solid #A9B8C2;*/
+	border: 1px solid #FF9900;
+	cursor: pointer;
+	padding: 1px 5px;
+	font-size: 1.1em;
+}
+
+.btnlite {
+	font-weight: normal;
+	background-color: #000000;
+	border: 1px solid #FF9900;
+	cursor: pointer;
+	padding: 1px 5px;
+	font-size: 1.1em;
+}
+
+.btnfile {
+	font-weight: normal;
+	background-color: #000000;
+	border: 1px solid #FF9900;
+	padding: 1px 5px;
+	font-size: 1.1em;
+}
+
+.helpline {
+	background-color: #000000;
+	border-style: none;
+}
+
+.cat input.btnmain, .cat input.btnlite, #pagecontent .cat input.btnmain, #pagecontent .cat input.btnlite {
+	margin: 5px 0 0 0;
+}
+
+#pagecontent .cat .btnmain, #pagecontent .cat .btnlite, #pagecontent .cat form input.btnlite  {
+	margin: 0;
+}
+
+/* BBCode
+ ------------ */
+.quotetitle, .attachtitle {
+	margin: 10px 5px 0 5px;
+	padding: 4px;
+	border-width: 1px 1px 0 1px;
+	border-style: solid;
+	border-color: #555555;
+	color: #333333;
+	background-color: #000000;
+	font-size: 0.85em;
+	font-weight: bold;
+	background-image: url('./images/catbg03.png');
+}
+
+.quotetitle .quotetitle {
+	font-size: 1em;
+}
+
+.quotecontent, .attachcontent {
+	margin: 0 5px 10px 5px;
+	padding: 0 5px 5px 5px;
+	border-color: #555555;
+	border-width: 0 1px 1px 1px;
+	border-style: solid;
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.2em;
+	font-family: Verdana, Arial, Helvetica, "Lucida Grande", "Trebuchet MS", sans-serif;
+	background-color: #000000;
+	color: #999999;
+	background-image: url('./images/catbg03.png');
+}
+
+.attachcontent {
+	font-size: 0.85em;
+}
+
+.codetitle {
+	margin: 10px 5px 0 5px;
+	padding: 2px 4px;
+	border-width: 1px 1px 0 1px;
+	border-style: solid;
+	border-color: #353535;
+	color: #999999;
+	background-color: #000000;
+	font-family: "Lucida Grande", Verdana, Helvetica, Arial, sans-serif;
+	font-size: 0.8em;
+	background-image: url('./images/catbg03.png');
+}
+
+.codecontent {
+	direction: ltr;
+	margin: 0 5px 10px 5px;
+	padding: 0 5px 5px 5px;
+	border-color: #353535;
+	border-width: 0 1px 1px 1px;
+	border-style: solid;
+	font-weight: normal;
+	color: #006600;
+	font-size: 0.85em;
+	font-family: Monaco, 'Courier New', monospace;
+	background-color: #000000;
+}
+
+.syntaxbg {
+	color: #FFFFFF;
+}
+
+.syntaxcomment {
+	color: #FF8000;
+}
+
+.syntaxdefault {
+	color: #0000BB;
+}
+
+.syntaxhtml {
+	color: #000000;
+}
+
+.syntaxkeyword {
+	color: #007700;
+}
+
+.syntaxstring {
+	color: #DD0000;
+}
+
+
+/* Private messages
+ ------------------ */
+.pm_marked_colour, .pm_marked_colour  img {
+	background-color: #FFCC33;
+}
+
+.pm_replied_colour, .pm_replied_colour img {
+	background-color: #A9B8C2;
+}
+
+.pm_friend_colour, .pm_friend_colour img {
+	background-color: #007700;
+}
+
+.pm_foe_colour, .pm_foe_colour img {
+	background-color: #DD0000;
+}
+
+
+/* Misc
+ ------------ */
+img {
+	border: none;
+	max-width: 700px;
+}
+
+.sep {
+	color: black;
+	background-color: #FFA34F;
+}
+
+table.colortable td {
+	padding: 0;
+}
+
+pre {
+	font-size: 1.1em;
+	font-family: Monaco, 'Courier New', monospace;
+}
+
+.nowrap {
+	white-space: nowrap;
+}
+
+.username-coloured {
+	font-weight: normal;
+	font-size: 1.1em;
+}
