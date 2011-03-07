@@ -1,0 +1,137 @@
+<table cellpadding="0" cellspacing="0"> 
+	<tbody>
+		<tr> 
+			<td valign="top"> 
+				<div class="sidebar"> 
+					<div class="lside-tab"> 
+						<div class="lside-head1"> 
+							<!--Compte-->	Compte
+
+							<!--<div class="fb-twb"> 
+								<a id="yt" href="http://www.youtube.com/user/EnsanityWoW"></a> 
+								<a id="fb" href="http://www.facebook.com/home.php#!/pages/Ensanity-WoW/161302657238139"></a> 
+							</div> -->
+
+						</div> 
+						<?php
+							if(!isset($_SESSION['id'])) {
+						?>
+						<div class="lside-tab-cont"> 
+							<div class="membership"> 
+								<form action="?page=Connexion#En_Cours_Donnees" method="post" name="login_form"> 
+									<table cellpadding="0" cellspacing="0"> 
+										<tr> 
+											<td valign="top"> 
+												<input id="username" type="text" name="username" value="Nom de compte" onfocus='if (this.value == "Nom de compte") this.value = "";' onblur='if (!this.value){ this.value = "Nom de compte"; }'/> 
+												<input id="password" type="password" name="password" value="PASSWORD" onfocus='if (this.value == "PASSWORD") this.value = "";' onblur='if (!this.value){ this.value = "PASSWORD"; }'  /> 
+											</td> 
+											<td valign="top"> 
+												<input name="action" type="submit" value="." /> 
+											</td> 
+										</tr> 
+									</table> 
+									
+									<div class="line-x"></div> 
+										<ul> 
+											<li><a id="reg" href="?page=Inscription"></a></li> 
+											<li><a id="pwfr" href="?page=Pass_Oublie"></a></li> 
+										</ul> 
+								</form> 
+							</div> 
+						</div> 
+						<?php
+							}
+							else {
+						?>
+						<div class="lside-tab-cont"> 
+							<div class="membership"> 
+								Nom de compte : <strong><font color="#d8be78"><?php echo $_SESSION['acc']; ?></font></strong><br /> 
+								Nombre de points: <strong><font color="#d8be78"><?php echo $pts; ?></font></strong> 
+								<div class="line-x"></div> 
+
+							<div style=" position:relative; top:3px; z-index:1;"> 
+								<a href="?page=Compte">Mon compte</a> 
+								<a href="?page=Voter">Voter</a> 
+								<a href="?page=Deconnexion">Deconnexion</a> 
+							</div> 
+						</div> 
+						<?php
+							}
+						?>
+						<div class="lside-end"></div> 
+					</div> 
+
+					<div class="realmst"> 
+						<p id="sname"><?php echo $royaume['name']; ?></p> 
+						<?php
+							if ($sock = @fsockopen($royaume['address'], $royaume['port'], $royaume['id'], $error, 3)) {
+								?>
+								<p id="sstatus"><span id='server1'></span><img src="styles/default/new-images/online-s.png" /></p>  
+								<p id="chars">Joueurs en lignes : <font color="#c1954f"><?php echo $online; ?></font></p> 
+								<p id="chars">Pourcentage : <font color="#c1954f"><?php echo $online_pt; ?></font></p>
+						<?php
+							}							
+							else { 
+						?>					
+								<p id="sstatus"><span id='server1'></span><img src="styles/default/new-images/offline-s.png" /></p>  
+								<p id="chars"><font color="red">Serveur Hors-Ligne !</font></p> 
+						<?php
+								fclose($sock);
+							} 
+						?>
+					</div> 
+
+					<!-- REALMLIST --> 
+					<div class="realmlist" align="center"> 
+						<font color="#524b49">Set realmlist</font> &nbsp; <?php echo $royaume['address']; ?>
+					</div> 
+
+
+					<div class="lside-tab"> 
+						<div class="lside-head2"></div> 
+
+						<div class="lside-tab-cont"> 
+							<table align="center"> 
+								<tr> 
+									<td valign="top"> 
+                                        <h3>Rates du serveur : <font color="#9f8370"></font></h3>
+                                        <br>
+                                        <br>
+                                        <br> 
+										<h3>Drop : <font color="#9f8370">1x</font></h3> 
+										<h3>Experience : <font color="#9f8370">3x</font></h3> 
+										<h3>Honor : <font color="#9f8370">2x</font></h3>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <h3>Partenariats : <font color="#9f8370"></font></h3>
+									    </br>
+                                    </td> 
+								
+									<td width="20px"></td> 
+
+									<td valign="top">
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>                                         
+										<h3>Money : <font color="#9f8370">1x</font></h3> 
+										<h3>Profession : <font color="#9f8370">2x</font></h3> 
+										<h3>Reputation : <font color="#9f8370">2x</font></h3> 
+                                        <br/>
+                                        
+                                        
+									</td> 
+								</tr> 
+							</table>
+                                                        
+                            
+                <a href="http://teamftr.fr/"><img src="../../images/baniere site.png" width="300" height="100" alt="" />
+                        </div>
+						<div class="lside-end"></div> 
+					</div> 
+
+				</div> 
+			</td> 
+		<td> 
+

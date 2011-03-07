@@ -1,0 +1,198 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head> 
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+		<meta name="Author" content="Infinity Chaos"> 
+		<meta name="Publisher" content="Infinity Chaos"> 
+		<meta name="Copyright" content="Infinity Chaos '2010'"> 
+		<meta name="Revisit-After" content="1 days"> 
+		<meta HTTP-EQUIV="Expires" content="no-expire"> 
+		<meta name="Keywords" content="infinity,chaos,wow,world,of,warcraft,official,trinity,core,developers,private,server,blizzlike,3.3.5a,scripted,instances,raids,icc,icecrown,citadel,trial,of,the,crusader,onyxia,lair,ulduar,obsidian,sanctum,naxxramas,vision,shauren,qaston,supabad,feel,the,new,quality"> 
+		<meta name="Description" content="Infinity Chaos, un nouveau serveur pour de nouvelles compétences !"> 
+		<meta name="Pagetopic" content="Games"> 
+		<meta name="Pagetype" content="Link-List"> 
+		<meta name="Audience" content="All"> 
+		<meta name="Robots" content="INDEX,FOLLOW"> 
+		<meta name="Content-Language" content="Français"> 
+
+		<link rel="shortcut icon" href="<?php echo $confGeneral['favicon']; ?>"> 
+
+		<title><?php echo $confGeneral['titre']; ?></title> 
+
+		<script type="text/javascript" src="res/javascript.js"></script> 
+		<script type="text/javascript" src="res/power/power.js"></script> 
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script> 
+
+		<script type="text/javascript"> 
+			$(document).ready(function() {
+				$(".paging").show();
+				$(".paging a:first").addClass("active");
+
+				var imageWidth = $(".window").width();
+				var imageSum = $(".image_reel img").size();
+				var imageReelWidth = imageWidth * imageSum;
+
+				$(".image_reel").css({'width' : imageReelWidth});
+				rotate = function(){
+					var triggerID = $active.attr("rel") - 1;
+					var image_reelPosition = triggerID * imageWidth;
+
+					$(".paging a").removeClass('active');
+					$active.addClass('active');
+
+					$(".image_reel").animate({
+						left: -image_reelPosition
+					}, 600 );
+
+				}; 
+
+				rotateSwitch = function(){
+					play = setInterval(function(){
+						$active = $('.paging a.active').next();
+						if ( $active.length === 0) {
+							$active = $('.paging a:first');
+						}
+						rotate();
+					}, 7000);
+				};
+
+				rotateSwitch();
+
+				$(".paging a").click(function() {
+					$active = $(this);
+					clearInterval(play);
+					rotate();
+					rotateSwitch(); 
+					return false;
+				});
+			});
+		</script> 
+
+		<link href="res/power/power.css" rel="stylesheet" type="text/css"> 
+
+		<script src="./res/javascript.js" type="text/javascript"></script>
+
+		<link href="styles/default/style.css" rel="stylesheet" type="text/css"> 
+		<!--not used variable: [sitetitle] --> 
+		<!--[if IE]>
+		<link href="res/style_ie.css" rel="stylesheet" type="text/css" />
+		<link href="res/power/power_ie.css" rel="stylesheet" type="text/css">
+		<![endif]--> 
+
+		<script type="text/javascript"> 
+			function getInternetExplorerVersion()
+			{
+				var rv = -1;
+
+				if (navigator.appName == 'Microsoft Internet Explorer')
+				{
+					var ua = navigator.userAgent;
+					var re  = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+					if (re.exec(ua) != null)
+					rv = parseFloat( RegExp.$1 );
+				}
+				return rv;
+			}
+
+			function readCookie(name) {
+				var nameEQ = name + "=";
+				var ca = document.cookie.split(';');
+
+				for(var i=0;i < ca.length;i++) {
+					var c = ca[i];
+					while (c.charAt(0)==' ') c = c.substring(1,c.length);
+					if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+				}
+
+				return null;
+			}
+
+			function createCookie(name,value,min) {
+				if (min) {
+					var date = new Date();
+					date.setTime(date.getTime()+(min*60*1000));
+					var expires = "; expires="+date.toGMTString();
+				}
+				else var expires = "";
+				document.cookie = name+"="+value+expires+"; path=/";
+			}
+
+
+			window.onload = function vote_popup() {
+				var ver = getInternetExplorerVersion();
+
+				if(navigator.appName == 'Microsoft Internet Explorer' && ver < 7.0)
+				{
+					return;
+				}
+
+				voted = readCookie('voted');
+
+				if (voted == null) {
+					document.getElementById('vote_popup').style.display = "block";
+				}
+
+			}
+
+			function hide_vote_popup() {
+				createCookie('voted','yes','10');
+				document.getElementById('vote_popup').style.display = "none";
+				document.getElementById('vote_popup').innerHTML = "";
+			};
+		</script> 
+	</head>
+	<body> 
+		<div id="vote_popup" style="width: 100%; height: 100%; position: fixed; left: 0px; right: 0px; top: 0px; bottom: 0px; background: url(./images/transbg.png) repeat; color: #F0F0F0; font-size: 9px; text-align: center; z-index: 99999; display: none;"> 
+			<div style="margin-top: 300px; width: 480px; padding: 5px 0px 0px 0px;margin-left: auto;margin-right: auto;display: block;positon: absolute;background-color: #000000;"><p style="padding:0px; margin:0px;"> 
+				<a href="?page=Connexion" onclick="createCookie('voted','yes','720');" title=""> 
+				<img style="border:solid 1px #e4b226;" src="images/vote-banner.gif" border="1" alt="" title="Vote" /></a><BR /><span onclick="hide_vote_popup();"><font size="2" face="Tahoma">Fermer X</font></span></a></p>
+			</div>
+		</div> 
+
+		<div align="center"> 
+			<div class="header"> 
+				<div class="logo"> 
+					<a href="./"></a> 
+				</div> 
+
+			<ul id="top-menu"> 
+				<li><a href="?page=Accueil">Accueil</a></li> 
+
+				<?php
+					if(!isset($_SESSION['id'])) {
+				?>
+					<li id="m-line"></li> 
+					<li><a href="?page=Inscription">Inscription</a></li> 
+
+					<li id="m-line"></li> 
+					<li><a href="?page=Connexion">Connexion</a></li> 
+				<?php
+					}
+					else {
+				?>
+					<li id="m-line"></li> 
+					<li><a href="?page=Compte">Mon compte</a></li> 
+
+					<li id="m-line"></li> 
+					<li><a href="?page=Voter">Voter</a></li>
+
+					<li id="m-line"></li> 
+					<li><a href="?page=Joueurs">Joueurs en Lignes</a></li> 
+				<?php
+					}
+				?>
+
+				<li id="m-line"></li> 
+				<li><a href="?page=Armurerie">Armurerie</a></li> 
+
+				<li id="m-line"></li> 
+				<li><a href="?page=Forum">Forum</a></li> 
+
+				<li id="m-line"></li> 
+				<li><a href="?page=Boutique">Boutique</a></li> 
+
+				<li id="m-line"></li> 
+				<li><a href="https://seidezeus-apps.sourcerepo.com/redmine/seidezeus" >Bugs</a></li> 
+			</ul> 
+		</div> 
+

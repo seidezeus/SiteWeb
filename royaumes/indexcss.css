@@ -1,0 +1,19 @@
+html {background-color: #1c0f09;}
+
+table {position: relative; left: 200px;}
+
+img {border: none;}
+
+#conteneur { height: 479px; margin: auto; background-image: url(images/reply_bg.jpg);background-repeat: repeat-x;margin-top: -8px;}
+#conteneur table {width: 992px; margin: auto; text-align: center; margin-top: -100px;}
+#conteneur p {color: white; position: relative; font-size: 22px; top: -140px; left: 400px;}
+
+.fond {position: relative; top: -355px;}
+
+#anim1 {opacity: 0.2;}
+#anim2 {opacity: 0.2;}
+#anim3 {opacity: 0;}
+
+#texte {margin: auto; height: 15px; padding-left: 50px; padding-right: 50px;}
+
+#text4 {float: right; color: blue; opacity: 0}
